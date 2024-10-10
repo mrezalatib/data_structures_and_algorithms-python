@@ -17,24 +17,24 @@ def spiral_matrix(n):
     """
     this is our matrix. it is initialized to a n * n matrix where each item in each row == 0
     """
-    res = []
+    matrix = []
 
     for item in range(n):
         row = []
         for j in range(n):
             row.append(0)
-        res.append(row)
+        matrix.append(row)
 
 
     for i in range(n * n):
-        res[ydirection][xdirection] = i + 1 #want to start filling the matrix with 1 and not 0 hence i + 1
+        matrix[y][x] = i + 1 #want to start filling the matrix with 1 and not 0 hence i + 1
         """
         the conditions below check if we need to change direction:
         0 <= x + dx < n: checks if we're out of bounds when moving right.
         0 <= y + dy < n: checks if we're out of bounds moving left.
         res[y+dy][x+dx] != 0: checks if the cell is not zero (we've already visited that cell if cell != 0)
         """
-        if not 0 <= x + xdirection < n or not 0 <= y + ydirection < n or res[y+ydirection][x+xdirection] != 0:
+        if not 0 <= x + xdirection < n or not 0 <= y + ydirection < n or matrix[y+ydirection][x+xdirection] != 0:
             """if any condition above is true, direction must change:
             if we're moving right (dx = 1, dy = 0) but youre out of bounds, we apply -dy to dx and apply dx to dy.
             so, dx = 0 and dy = 1 which means we are switching to downward direction
@@ -44,7 +44,7 @@ def spiral_matrix(n):
         x += xdirection
         y += ydirection #this is here so we can actually traverse each cell in the matrix!
 
-    return res
+    return matrix
 
 
-print(spiral_matrix(5))
+print(spiral_matrix(3))
