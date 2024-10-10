@@ -51,4 +51,10 @@ def list_operations():
     min_value = min(mylist)
     total = sum(mylist) #returns the sum of all items in the list
 
-    
+
+def tuple_operations():
+    mytuple = (1, 2, 3)
+
+    #tuples are immutable
+    # we can index tuples exactly like lists
+    # we can unpack
